@@ -1,4 +1,4 @@
-Secure Network Interface with SGX
+## Secure Network Interface with SGX
 
 
 This repo provides network security functionality within an Intel SGX enclave.
@@ -65,7 +65,7 @@ I strongly recommend that future TEE implementations use a secure language from 
 
 _________________________________________________________________________
 **Limitations of SGX:**
-SGX cannot directly access any external hardware.
+Currently, SGX cannot directly access any external hardware.
 Therefore, it is necessary to establish a cryptographic channel to securely communicate between an SGX enclave and external hardware.
 In this work, we used a "MACSec gateway" for this cryptographic channel.
 Other TEEs can be configured to avoid this issue altogether (e.g. ARM TrustZone).
