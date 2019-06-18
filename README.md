@@ -1,4 +1,8 @@
-Trusted Network Interface
+Secure Network Interface with SGX
+
+
+This repo provides network security functionality within an Intel SGX enclave.
+My [master thesis](thesis.pdf) contains technical details and background information.
 
 _________________________________________________________________________
 **Build Setup (Simulation Mode):**
