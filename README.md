@@ -2,6 +2,7 @@
 
 
 This repo provides network security functionality within an Intel SGX enclave.
+The [documentation](doc/main.md) provides a short overview of the functionality.
 My [master thesis](thesis.pdf) contains technical details and background information.
 
 _________________________________________________________________________
