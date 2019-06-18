@@ -1,0 +1,21 @@
+enclave {
+
+    trusted {
+        /* The test routines are implemented as ECALL's */
+
+        public int ecall_simple_http_client(struct trusted_sock_addr server, size_t num_requests);
+
+        public int ecall_send_close(struct trusted_sock_addr server, size_t num_requests);
+
+        public int ecall_bulk_data_client(struct trusted_sock_addr server, size_t num_requests, size_t stream_size);
+
+        public int ecall_macsec_raw_authenticate([user_check] void* buf, size_t packet_len, size_t buf_len, uint32_t packet_number);
+
+        public int ecall_macsec_raw_verify([user_check] void* buf, size_t packet_len, size_t buf_len);
+
+        public int ecall_raw_packet_copy([user_check] void* buf, size_t packet_len, size_t buf_len);
+    };
+
+    /* Import all ECALL's and OCALL's of the trusted net lib */
+    from "../../packet_validation/packet_validation.edl" import *;
+};

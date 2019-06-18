@@ -1,0 +1,45 @@
+/* This file is included within the application-specific edl file */
+
+enclave {
+
+    #include "edl_types.h"
+
+    trusted {
+
+        public int ecall_authenticate_outgoing_packet([user_check] void* buf, size_t packet_len, size_t buf_len, uint32_t packet_number);
+
+        public int ecall_verify_incoming_packet([user_check] void* buf, size_t packet_len, size_t buf_len);
+
+        public int ecall_install_macsec_keys([user_check] const void* p_keyfile, uint32_t p_keyfile_len, [user_check] void* sealed_keyfile, uint32_t sealed_keyfile_buf_len, [user_check] uint32_t* sealed_keyfile_len_out);
+
+        public int ecall_load_macsec_keys([user_check] const void* sealed_keyfile, uint32_t sealed_keyfile_len);
+    };
+
+    untrusted {
+
+        int ocall_sock_create(int domain, int type, int protocol);
+
+        int ocall_sock_connect(int sockfd, struct trusted_sock_addr sock_addr);
+
+        size_t ocall_sock_send(int sockfd, [user_check] const void* buf, size_t len, int flags);
+
+        size_t ocall_sock_recv(int sockfd, [user_check] void* buf, size_t len, int flags);
+
+        int ocall_sock_shutdown(int sockfd, int how);
+
+        int ocall_sock_close(int sockfd);
+
+
+        /**
+        *  For small fixed-size buffers, the [in] attribute provides a secure way to copy a buffer from an enclave to the outside world.
+        *  The [in] attribute auto-generates a routine which copies the buffer to the the "SGX outside stack".
+        *  For "large" buffers we use the [user_check] attribute and perform a "manual" pointer checking.
+        **/
+        void ocall_print_string([in, string] const char *str);
+
+        void* ocall_malloc(size_t size);
+
+        void ocall_free([user_check] void* ptr);
+
+    };
+};
