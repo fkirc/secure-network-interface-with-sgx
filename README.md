@@ -61,7 +61,7 @@ _________________________________________________________________________
 **Future work:**
 Implementing those protocol validations in C is a bad idea with respect to security.
 The choice of C was only made for the sake of a quick implementation.
-I strongly recommend that future TEE implementations use a secure language from the beginning (e.g. Rust, Go, Java).
+I strongly recommend that future TEE implementations use a secure language from the beginning (e.g. Rust, Go, Kotlin).
 
 
 _________________________________________________________________________
