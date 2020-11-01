@@ -1,15 +1,13 @@
-## Secure Network Interface with SGX
+# Secure Network Interface with SGX
 
 
 This repo provides network security functionality within an Intel SGX enclave.
 The [documentation](doc/main.md) provides a short overview of the functionality.
 My [master thesis](thesis.pdf) contains technical details and background information.
-
 _________________________________________________________________________
 **Build Setup (Simulation Mode):**
 
-This has been tested with Ubuntu 18.04.    
-Please refer to the official Intel instructions if anything fails.
+> :warning: **Warning**: The build-instructions in this repo might be outdated. Please do not rely on those build-instructions and refer to official Intel-instructions instead. This has been only tested with Ubuntu 18.04.
 
 Install the packages:    
 `make cmake git g++ cppcheck`    
