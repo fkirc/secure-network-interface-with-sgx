@@ -57,9 +57,17 @@ Build and run the tests:
 
 _________________________________________________________________________
 **Future work:**
+
 Implementing those protocol validations in C is a bad idea with respect to security.
-The choice of C was only made for the sake of a quick implementation.
-I strongly recommend that future TEE implementations use a secure language from the beginning (e.g. Rust, Go, Kotlin).
+The choice of the C Programming Language was only made because the Rust-SGX-support was still in its early stages at the time of writing.
+Therefore, I strongly recommend that future TEE implementations use a secure language from the beginning (e.g. Rust, Go, Kotlin).
+
+More generally, given todays knowledge and research advancements, the usage of C for security-critical systems is a huge mistake.
+Unfortunately, this is the security-world that we have in 2020. Large systems like the Linux-kernel cannot be rewritten at once, but they need to be rewritten in a gradual manner.
+
+Nevertheless, the usage of C can still be acceptable for *safety-critical* systems.
+In this context, please be careful to correctly distinguish between security-critical systems (e.g. a parsing-library) and safety-critical systems (e.g. a flight control computer).
+
 
 
 _________________________________________________________________________
